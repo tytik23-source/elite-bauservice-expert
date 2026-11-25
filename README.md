@@ -1,6 +1,6 @@
 # Elite Bauservice Expert
 
-Сайт строительной компании Elite Bauservice Expert (на немецком). Одна статическая страница, без сборки.
+Сайт кровельной фирмы Elite Bauservice Expert (Dachdecker-Meisterbetrieb, на немецком). Одна статическая страница, без сборки.
 
 - `index.html` — сайт.
 - `preview.html` — тот же контент в формате предпросмотра Claude (артефакт).
