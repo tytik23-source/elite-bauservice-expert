@@ -1,0 +1,498 @@
+<title>Elite Bauservice Expert</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Elite Bauservice Expert – Meisterbetrieb für Dach, Fassade, Sanierung und Innenausbau. Kostenlose Besichtigung und Festpreis-Angebot.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: ruhige, helle Seite im Stil eines Handwerksbetriebs – Anthrazit wie Dachziegel, Messing als Akzent, schmale Archivo-Überschriften */
+:root{
+  --bg:#f5f4f1;
+  --paper:#ffffff;
+  --ink:#1f2326;        /* Anthrazit */
+  --muted:#5f666b;
+  --line:#dcdad4;
+  --brass:#b8862f;      /* Messing */
+  --brass-ink:#1c1405;
+  --slate:#2b3136;      /* dunkle Flächen */
+  --slate-fg:#eef0f1;
+  --ph:#e7e5df;         /* Foto-Platzhalter */
+  --ph-line:#c9c6bd;
+  --f-display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Inter","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --gut-l:max(16px, env(safe-area-inset-left, 0px));
+  --gut-r:max(16px, env(safe-area-inset-right, 0px));
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#14171a; --paper:#1b1f23; --ink:#e9ebec; --muted:#a2a9ae; --line:#2e353a;
+  --brass:#d6a54c; --brass-ink:#1c1405; --slate:#0e1113; --slate-fg:#e9ebec; --ph:#22282d; --ph-line:#3a4248;
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#14171a; --paper:#1b1f23; --ink:#e9ebec; --muted:#a2a9ae; --line:#2e353a;
+  --brass:#d6a54c; --brass-ink:#1c1405; --slate:#0e1113; --slate-fg:#e9ebec; --ph:#22282d; --ph-line:#3a4248;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{transition:none!important} }
+body{background:var(--bg);color:var(--ink);font:16px/1.6 var(--f-body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:var(--gut-l);padding-right:var(--gut-r)}
+h1,h2,h3{font-family:var(--f-display);font-stretch:80%;text-wrap:balance;line-height:1.05;margin:0;letter-spacing:-.005em}
+h2{font-size:clamp(2rem,4.2vw,3.2rem);font-weight:800;text-transform:uppercase}
+h3{font-size:1.3rem;font-weight:700;text-transform:uppercase}
+p{margin:0}
+.eyebrow{font:500 .75rem/1.2 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--brass)}
+.btn{display:inline-flex;align-items:center;gap:10px;justify-content:center;border:0;cursor:pointer;text-decoration:none;
+  font:700 .95rem/1 var(--f-body);padding:15px 24px;border-radius:2px;background:var(--brass);color:var(--brass-ink);transition:filter .15s}
+.btn:hover{filter:brightness(1.08)}
+.btn.line{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px currentColor}
+
+/* Foto-Platzhalter: hier kommen echte Fotos hinein */
+.ph{position:relative;background:var(--ph);border:1.5px dashed var(--ph-line);display:grid;place-items:center;overflow:hidden;max-width:100%}
+.ph::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0 14px,var(--ph-line) 14px 15px);opacity:.35}
+.ph span{position:relative;font:500 .78rem/1.4 var(--f-mono);color:var(--muted);text-align:center;padding:8px 12px;background:var(--paper);border-radius:2px}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* Topbar + Header */
+.topbar{background:var(--slate);color:var(--slate-fg);font-size:.85rem}
+.topbar .wrap{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-between;padding-block:8px}
+.topbar b{color:var(--brass)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--paper);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:28px;min-height:72px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo .mark{width:40px;height:40px;display:grid;place-items:center;background:var(--ink);color:var(--bg)}
+.logo b{display:block;font:800 1.15rem/1 var(--f-display);font-stretch:78%;text-transform:uppercase;letter-spacing:.02em}
+.logo small{display:block;font:500 .62rem/1.3 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+.nav ul{display:flex;gap:22px;list-style:none;margin:0 0 0 auto;padding:0}
+.nav ul a{text-decoration:none;font-weight:600;font-size:.92rem}
+.nav ul a:hover{color:var(--brass)}
+@media (max-width:980px){ .nav ul{display:none} .nav .btn{margin-left:auto} }
+@media (max-width:420px){ .nav .btn{padding:12px 14px;font-size:.85rem} }
+
+/* Hero */
+.hero{background:var(--slate);color:var(--slate-fg)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:520px}
+.hero-text{padding-block:72px;padding-right:48px;display:flex;flex-direction:column;justify-content:center;gap:22px}
+.hero h1{font-size:clamp(2.6rem,6.4vw,5.2rem);font-weight:800;text-transform:uppercase}
+.hero h1 span{color:var(--brass)}
+.hero .lead{font-size:1.12rem;opacity:.85;max-width:32em}
+.hero .services-line{font:500 .8rem/1.6 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;opacity:.75}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px}
+.hero .ph{border:0;min-height:320px;margin-right:calc(-1 * var(--gut-r))}
+.hero .ph span{background:var(--slate);color:var(--slate-fg)}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);background:var(--paper);color:var(--ink);border-bottom:1px solid var(--line)}
+.trust div{padding:22px 24px;display:flex;gap:14px;align-items:center;border-right:1px solid var(--line)}
+.trust div:last-child{border-right:0}
+.trust svg{flex:none;color:var(--brass)}
+.trust b{display:block;font-weight:700}
+.trust span{font-size:.88rem;color:var(--muted)}
+@media (max-width:860px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-text{padding-right:0;padding-block:56px 40px}
+  .hero .ph{margin:0 calc(-1 * var(--gut-r)) 0 calc(-1 * var(--gut-l));min-height:240px}
+  .trust{grid-template-columns:1fr}
+  .trust div{border-right:0;border-bottom:1px solid var(--line)}
+}
+
+section.block{padding-block:88px}
+.head{display:grid;grid-template-columns:1fr 1fr;gap:16px 48px;align-items:end;margin-bottom:44px}
+.head > div{display:grid;gap:12px}
+.head p{color:var(--muted);max-width:34em}
+@media (max-width:760px){ .head{grid-template-columns:1fr} }
+
+/* Leistungen */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.svc{display:flex;flex-direction:column;gap:14px;min-width:0}
+.svc .ph{aspect-ratio:4/3}
+.svc .num{font:500 .75rem var(--f-mono);color:var(--brass);letter-spacing:.1em}
+.svc p{color:var(--muted);font-size:.95rem}
+.svc ul{margin:0;padding:0;list-style:none;display:grid;gap:4px;font-size:.9rem}
+.svc li::before{content:"—";color:var(--brass);margin-right:8px}
+@media (max-width:900px){ .services{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:560px){ .services{grid-template-columns:1fr} }
+
+/* Projekte */
+.projects{display:grid;grid-template-columns:2fr 1fr 1fr;grid-auto-rows:220px;gap:14px}
+.projects figure{margin:0;position:relative;min-width:0}
+.projects figure:first-child{grid-row:span 2}
+.projects figure:nth-child(4){grid-column:span 2}
+.projects .ph{height:100%}
+.projects figcaption{position:absolute;left:0;bottom:0;background:var(--paper);padding:8px 12px;font-size:.85rem;font-weight:600}
+.projects figcaption small{display:block;font:500 .7rem var(--f-mono);color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+@media (max-width:760px){
+  .projects{grid-template-columns:1fr 1fr;grid-auto-rows:180px}
+  .projects figure:first-child{grid-column:span 2;grid-row:span 1}
+  .projects figure:nth-child(4){grid-column:span 2}
+}
+
+/* Werte */
+.values{background:var(--paper);border-block:1px solid var(--line)}
+.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.values-grid > div{padding:8px 28px 8px 0;display:grid;gap:12px;align-content:start}
+.values-grid > div + div{padding-left:28px;border-left:1px solid var(--line)}
+.values-grid svg{color:var(--brass)}
+.values-grid p{color:var(--muted);font-size:.94rem}
+@media (max-width:900px){
+  .values-grid{grid-template-columns:1fr 1fr;row-gap:36px}
+  .values-grid > div:nth-child(3){padding-left:0;border-left:0}
+}
+@media (max-width:520px){
+  .values-grid{grid-template-columns:1fr}
+  .values-grid > div + div{padding-left:0;border-left:0;border-top:1px solid var(--line);padding-top:28px}
+}
+
+/* Ablauf */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;list-style:none;margin:0;padding:0;counter-reset:st}
+.steps li{padding:22px 20px 0 0;border-top:3px solid var(--ink);display:grid;gap:8px;align-content:start;min-width:0}
+.steps li::before{counter-increment:st;content:"Schritt " counter(st);font:500 .72rem var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--brass)}
+.steps h3{font-size:1.1rem}
+.steps p{color:var(--muted);font-size:.92rem}
+@media (max-width:900px){ .steps{grid-template-columns:1fr 1fr;row-gap:32px} }
+@media (max-width:520px){ .steps{grid-template-columns:1fr} }
+
+/* Über uns + Zahlen */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.about .ph{aspect-ratio:5/4}
+.about-text{display:grid;gap:18px}
+.about-text p{color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);margin-top:8px}
+.stats div{padding-top:16px}
+.stats b{display:block;font:800 2.2rem/1 var(--f-display);font-stretch:78%;font-variant-numeric:tabular-nums}
+.stats span{font-size:.85rem;color:var(--muted)}
+@media (max-width:860px){ .about{grid-template-columns:1fr;gap:32px} }
+
+/* Einsatzgebiet */
+.area{background:var(--slate);color:var(--slate-fg)}
+.area-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.area .eyebrow{color:var(--brass)}
+.area p{opacity:.8}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.chips span{padding:8px 14px;border:1px solid rgba(255,255,255,.25);font-size:.9rem}
+.radar{width:100%;max-width:420px;justify-self:center}
+.radar svg{display:block;width:100%;height:auto}
+@media (max-width:860px){ .area-grid{grid-template-columns:1fr} }
+
+/* Karriere + PV */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.card{background:var(--paper);border:1px solid var(--line);display:grid;grid-template-rows:auto 1fr;min-width:0}
+.card .ph{aspect-ratio:16/9;border-width:0 0 1.5px}
+.card .body{padding:28px;display:grid;gap:14px;align-content:start}
+.card p{color:var(--muted)}
+.card .btn{justify-self:start;margin-top:6px}
+@media (max-width:860px){ .duo{grid-template-columns:1fr} }
+
+/* Kontakt */
+.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px}
+.info{display:grid;gap:22px;align-content:start}
+.info dl{display:grid;gap:18px;margin:8px 0 0}
+.info dt{font:500 .72rem var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.info dd{margin:4px 0 0;font-size:1.1rem;font-weight:600;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.info dd button{font:500 .7rem var(--f-mono);padding:4px 8px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer}
+.hours{font-size:.95rem;color:var(--muted)}
+form.lead{background:var(--paper);border:1px solid var(--line);padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+form.lead .full{grid-column:1/-1}
+form.lead label{display:grid;gap:6px;font-size:.85rem;font-weight:600}
+form.lead input:not([type=checkbox]),form.lead select,form.lead textarea{width:100%;font:500 1rem var(--f-body);padding:12px;border:1px solid var(--line);border-radius:2px;background:var(--bg);color:var(--ink)}
+form.lead textarea{min-height:110px;resize:vertical}
+form.lead input:focus,form.lead select:focus,form.lead textarea:focus{outline:2px solid var(--brass);outline-offset:0;border-color:var(--brass)}
+form.lead .check{display:flex;gap:10px;align-items:flex-start;font-weight:400;color:var(--muted)}
+form.lead .check input{margin-top:4px;accent-color:var(--brass)}
+.err{color:#c0392b;font-size:.85rem;font-weight:600}
+.ok{padding:14px;background:var(--bg);border-left:3px solid var(--brass);font-weight:600}
+@media (max-width:860px){ .contact-grid{grid-template-columns:1fr;gap:36px} }
+@media (max-width:520px){ form.lead{grid-template-columns:1fr;padding:22px} }
+
+footer{background:var(--slate);color:var(--slate-fg);font-size:.9rem}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;padding-block:48px 28px}
+footer h4{margin:0 0 12px;font:500 .72rem var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--brass)}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+footer a{text-decoration:none;opacity:.85}
+footer a:hover{opacity:1;text-decoration:underline}
+footer .legal{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;border-top:1px solid rgba(255,255,255,.15);padding-top:20px;opacity:.7;font-size:.82rem}
+@media (max-width:760px){ footer .wrap{grid-template-columns:1fr} }
+</style>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>Meisterbetrieb · <b>Kostenlose Besichtigung</b> innerhalb von 48 Stunden</span>
+    <span>Mo–Fr 7:00–18:00 · Sa 8:00–13:00</span>
+  </div>
+</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="Elite Bauservice Expert – Startseite">
+      <span class="mark"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M2 12 12 3l10 9"/><path d="M5 10v11h14V10"/><path d="M9 21v-6h6v6"/></svg></span>
+      <span><b>Elite Bauservice</b><small>Expert · Meisterbetrieb</small></span>
+    </a>
+    <ul>
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#projekte">Projekte</a></li>
+      <li><a href="#ueber-uns">Über uns</a></li>
+      <li><a href="#einsatzgebiet">Einsatzgebiet</a></li>
+      <li><a href="#karriere">Karriere</a></li>
+    </ul>
+    <a class="btn" href="#kontakt">Angebot anfragen</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <p class="eyebrow">Elite Bauservice Expert</p>
+        <h1>Ihr Bau&shy;service vom <span>Meister&shy;betrieb</span></h1>
+        <p class="lead">Dach, Fassade, Sanierung und Innenausbau aus einer Hand. Wir besichtigen kostenlos, erstellen ein verbindliches Festpreis-Angebot und halten den vereinbarten Termin.</p>
+        <p class="services-line">Dachsanierung · Flachdach · Fassade & Dämmung · Innenausbau · Photovoltaik</p>
+        <div class="actions">
+          <a class="btn" href="#kontakt">Kostenlose Besichtigung</a>
+          <a class="btn line" href="#leistungen">Unsere Leistungen</a>
+        </div>
+      </div>
+      <div class="ph"><span>Foto: Titelbild<br>z. B. fertiges Dach / Baustelle</span></div>
+    </div>
+  </section>
+  <div class="trust">
+    <div><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="12"/><path d="M10 16l4 4 8-8"/></svg><p><b>Festpreis-Angebot</b><span>Keine Nachträge ohne Ihre Zustimmung</span></p></div>
+    <div><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="7" width="22" height="20"/><path d="M5 13h22M11 4v6M21 4v6"/></svg><p><b>Termintreue</b><span>Fester Bauzeitenplan ab Auftrag</span></p></div>
+    <div><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 4l10 4v8c0 6-4.5 10-10 12C10.5 26 6 22 6 16V8z"/></svg><p><b>5 Jahre Gewährleistung</b><span>Nach VOB/B auf alle Arbeiten</span></p></div>
+  </div>
+
+  <section class="block" id="leistungen">
+    <div class="wrap">
+      <div class="head">
+        <div><p class="eyebrow">Leistungen</p><h2>Alles rund ums Haus</h2></div>
+        <p>Vom undichten Dach bis zur Komplettsanierung: Wir übernehmen einzelne Gewerke oder koordinieren das ganze Projekt mit einem festen Ansprechpartner.</p>
+      </div>
+      <div class="services">
+        <article class="svc">
+          <div class="ph"><span>Foto: Steildach</span></div>
+          <span class="num">01</span><h3>Steildach</h3>
+          <p>Neueindeckung und Sanierung mit Ton- und Betonziegeln, Schiefer oder Metall.</p>
+          <ul><li>Neueindeckung & Umdeckung</li><li>Dachfenster & Gauben</li><li>Dachrinnen & Klempnerarbeiten</li></ul>
+        </article>
+        <article class="svc">
+          <div class="ph"><span>Foto: Flachdach</span></div>
+          <span class="num">02</span><h3>Flachdach</h3>
+          <p>Abdichtung mit Bitumen, Kunststoff- oder Flüssigabdichtung, auch für Garagen und Gewerbe.</p>
+          <ul><li>Flachdachsanierung</li><li>Gründach & Terrassen</li><li>Leckortung</li></ul>
+        </article>
+        <article class="svc">
+          <div class="ph"><span>Foto: Fassade / Dämmung</span></div>
+          <span class="num">03</span><h3>Fassade & Dämmung</h3>
+          <p>Wärmedämmung nach GEG, Putzfassaden und Verkleidungen. Wir helfen beim Förderantrag.</p>
+          <ul><li>WDVS & Putz</li><li>Dachdämmung</li><li>Förderung über BAFA / KfW</li></ul>
+        </article>
+        <article class="svc">
+          <div class="ph"><span>Foto: Innenausbau</span></div>
+          <span class="num">04</span><h3>Innenausbau & Sanierung</h3>
+          <p>Trockenbau, Estrich, Böden und Malerarbeiten für Wohnungen, Häuser und Büros.</p>
+          <ul><li>Trockenbau & Dachausbau</li><li>Bodenbeläge & Fliesen</li><li>Komplettsanierung</li></ul>
+        </article>
+        <article class="svc">
+          <div class="ph"><span>Foto: Photovoltaik</span></div>
+          <span class="num">05</span><h3>Photovoltaik</h3>
+          <p>PV-Anlage direkt mit dem neuen Dach: Planung, Montage und Anmeldung beim Netzbetreiber.</p>
+          <ul><li>Privat & Gewerbe</li><li>Stromspeicher</li><li>Indach- und Aufdachmontage</li></ul>
+        </article>
+        <article class="svc">
+          <div class="ph"><span>Foto: Reparatur</span></div>
+          <span class="num">06</span><h3>Reparatur & Notdienst</h3>
+          <p>Sturmschaden oder Wasser im Haus? Wir sichern das Dach kurzfristig und dokumentieren für die Versicherung.</p>
+          <ul><li>Sturmschäden</li><li>Undichte Stellen</li><li>Wartung & Dachinspektion</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="projekte" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <div><p class="eyebrow">Referenzen</p><h2>Unsere letzten Projekte</h2></div>
+        <p>Ein Einblick in unsere Arbeit. Weitere Referenzen und Kontakte zu Bauherren zeigen wir Ihnen gern beim Termin.</p>
+      </div>
+      <div class="projects">
+        <figure><div class="ph"><span>Foto: Projekt 1</span></div><figcaption><small>Steildach · 2026</small>Neueindeckung Einfamilienhaus, 180 m²</figcaption></figure>
+        <figure><div class="ph"><span>Foto: Projekt 2</span></div><figcaption><small>Flachdach</small>Sanierung Gewerbehalle</figcaption></figure>
+        <figure><div class="ph"><span>Foto: Projekt 3</span></div><figcaption><small>Photovoltaik</small>9,8 kWp mit Speicher</figcaption></figure>
+        <figure><div class="ph"><span>Foto: Projekt 4</span></div><figcaption><small>Fassade & Dämmung</small>Mehrfamilienhaus, WDVS 16 cm</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="block values">
+    <div class="wrap">
+      <div class="head">
+        <div><p class="eyebrow">Warum wir</p><h2>Darauf können Sie sich verlassen</h2></div>
+      </div>
+      <div class="values-grid">
+        <div><svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 30V14l12-8 12 8v16z"/><path d="M14 30v-9h8v9"/></svg><h3>Erfahrung</h3><p>Meister und ausgebildete Gesellen im eigenen Team. Wir arbeiten nach den Fachregeln des Handwerks.</p></div>
+        <div><svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="18" cy="12" r="6"/><path d="M6 32c1-7 6-10 12-10s11 3 12 10"/></svg><h3>Ein Ansprech&shy;partner</h3><p>Ihr Bauleiter ist vom ersten Termin bis zur Abnahme für Sie erreichbar.</p></div>
+        <div><svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="18" cy="18" r="13"/><path d="M18 10v8l5 4"/></svg><h3>Termintreue</h3><p>Wir planen realistisch und informieren Sie sofort, falls Wetter oder Lieferung den Ablauf ändern.</p></div>
+        <div><svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 4l4 8 9 1.3-6.5 6.3 1.5 9L18 24.5 10 28.6l1.5-9L5 13.3 14 12z"/></svg><h3>Qualität</h3><p>Markenmaterialien mit Herstellergarantie und eine saubere Baustelle, jeden Tag.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="head">
+        <div><p class="eyebrow">Ablauf</p><h2>So arbeiten wir</h2></div>
+        <p>Von Ihrer Anfrage bis zur Abnahme vergehen bei Reparaturen oft nur wenige Tage, bei Sanierungen planen wir gemeinsam den passenden Zeitraum.</p>
+      </div>
+      <ol class="steps">
+        <li><h3>Anfrage</h3><p>Per Telefon, E-Mail oder Formular. Wir melden uns am selben Werktag.</p></li>
+        <li><h3>Besichtigung</h3><p>Kostenlos vor Ort, mit Aufmaß und Fotodokumentation.</p></li>
+        <li><h3>Angebot</h3><p>Festpreis mit allen Positionen, verständlich aufgeschlüsselt.</p></li>
+        <li><h3>Ausführung</h3><p>Fester Starttermin, tägliche Baustellenreinigung.</p></li>
+        <li><h3>Abnahme</h3><p>Gemeinsame Begehung, Protokoll und Gewährleistungsunterlagen.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" id="ueber-uns" style="padding-top:0">
+    <div class="wrap about">
+      <div class="ph"><span>Foto: Team / Inhaber</span></div>
+      <div class="about-text">
+        <p class="eyebrow">Über uns</p>
+        <h2>Elite Bauservice Expert</h2>
+        <p>Wir sind ein inhabergeführter Meisterbetrieb mit eigenem Team aus Dachdeckern, Trockenbauern und Malern. Unsere Kunden sind Hausbesitzer, Hausverwaltungen und Gewerbebetriebe in der Region.</p>
+        <p>Wir übernehmen alle Arbeiten rund um Dach und Haus, von der kleinen Reparatur bis zur Komplettsanierung mit Photovoltaik. Sie bekommen alles aus einer Hand und müssen keine Gewerke selbst koordinieren.</p>
+        <div class="stats">
+          <div><b>15+</b><span>Jahre Erfahrung</span></div>
+          <div><b>600+</b><span>abgeschlossene Projekte</span></div>
+          <div><b>48 h</b><span>bis zur Besichtigung</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block area" id="einsatzgebiet">
+    <div class="wrap area-grid">
+      <div>
+        <p class="eyebrow">Einsatzgebiet</p>
+        <h2 style="margin-top:12px">In Ihrer Stadt & Umgebung</h2>
+        <p style="margin-top:16px;max-width:32em">Wir arbeiten im Umkreis von rund 50 km um unseren Standort. Für größere Projekte kommen wir auch weiter.</p>
+        <div class="chips">
+          <span>Stadtteil A</span><span>Stadtteil B</span><span>Stadtteil C</span><span>Stadtteil D</span><span>Nachbarort E</span><span>Nachbarort F</span><span>Nachbarort G</span>
+        </div>
+      </div>
+      <div class="radar" aria-hidden="true">
+        <svg viewBox="0 0 400 400">
+          <g fill="none" stroke="currentColor" stroke-opacity=".25">
+            <circle cx="200" cy="200" r="60"/><circle cx="200" cy="200" r="120"/><circle cx="200" cy="200" r="180" stroke-dasharray="4 6"/>
+            <path d="M200 10v380M10 200h380"/>
+          </g>
+          <g fill="currentColor" font-family="IBM Plex Mono, monospace" font-size="11" fill-opacity=".7">
+            <text x="206" y="136">15 km</text><text x="206" y="76">30 km</text><text x="206" y="16">50 km</text>
+          </g>
+          <circle cx="200" cy="200" r="10" fill="#d6a54c"/>
+          <circle cx="200" cy="200" r="22" fill="none" stroke="#d6a54c" stroke-width="2"/>
+          <g fill="currentColor"><circle cx="270" cy="150" r="4"/><circle cx="130" cy="240" r="4"/><circle cx="290" cy="280" r="4"/><circle cx="110" cy="110" r="4"/><circle cx="330" cy="200" r="4"/><circle cx="220" cy="320" r="4"/><circle cx="90" cy="300" r="4"/></g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="karriere">
+    <div class="wrap duo">
+      <article class="card">
+        <div class="ph"><span>Foto: Azubis / Team auf der Baustelle</span></div>
+        <div class="body">
+          <p class="eyebrow">Karriere</p>
+          <h3>Komm in unser Team</h3>
+          <p>Wir suchen Dachdecker, Trockenbauer und Helfer (m/w/d) sowie Auszubildende. Bei uns gibt es pünktlichen Lohn, gutes Werkzeug, Firmenwagen für Vorarbeiter und echte Aufstiegschancen bis zum Meister.</p>
+          <a class="btn line" href="#kontakt">Jetzt bewerben</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="ph"><span>Foto: PV-Anlage auf dem Dach</span></div>
+        <div class="body">
+          <p class="eyebrow">Photovoltaik</p>
+          <h3>Neues Dach, eigener Strom</h3>
+          <p>Wenn das Dach ohnehin neu gemacht wird, lohnt sich die PV-Anlage doppelt: Gerüst und Montage fallen nur einmal an. Wir planen Anlage und Speicher passend zu Ihrem Verbrauch.</p>
+          <a class="btn line" href="#kontakt">PV-Beratung anfragen</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="block" id="kontakt" style="padding-top:0">
+    <div class="wrap contact-grid">
+      <div class="info">
+        <p class="eyebrow">Kontakt</p>
+        <h2>Kostenloses Angebot anfordern</h2>
+        <p style="color:var(--muted)">Beschreiben Sie kurz Ihr Vorhaben. Wir rufen zurück und vereinbaren einen Besichtigungstermin.</p>
+        <dl>
+          <div><dt>Telefon</dt><dd><span>0000 / 000 000 00</span><button type="button" data-copy="0000 / 000 000 00">Kopieren</button></dd></div>
+          <div><dt>E-Mail</dt><dd><span>info@elite-bauservice.example</span><button type="button" data-copy="info@elite-bauservice.example">Kopieren</button></dd></div>
+          <div><dt>Adresse</dt><dd>Musterstraße 1, 00000 Musterstadt</dd></div>
+        </dl>
+        <p class="hours">Mo–Fr 7:00–18:00 · Sa 8:00–13:00<br>Notdienst bei Sturmschäden auch am Wochenende</p>
+      </div>
+      <form class="lead" id="leadForm" novalidate>
+        <label>Name<input id="f-name" name="name" autocomplete="name"></label>
+        <label>Telefon<input id="f-phone" name="phone" type="tel" autocomplete="tel"></label>
+        <label class="full">E-Mail<input id="f-mail" name="email" type="email" autocomplete="email"></label>
+        <label>Leistung
+          <select id="f-svc" name="service"><option>Steildach</option><option>Flachdach</option><option>Fassade & Dämmung</option><option>Innenausbau & Sanierung</option><option>Photovoltaik</option><option>Reparatur / Notdienst</option><option>Bewerbung</option></select>
+        </label>
+        <label>PLZ / Ort<input id="f-plz" name="plz" autocomplete="postal-code"></label>
+        <label class="full">Ihre Nachricht<textarea id="f-msg" name="msg" placeholder="Was soll gemacht werden? Ungefähre Größe, gewünschter Zeitraum"></textarea></label>
+        <label class="check full"><input type="checkbox" id="f-dsgvo">Ich bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage gespeichert werden (siehe Datenschutzerklärung).</label>
+        <span class="err full" id="f-err" hidden></span>
+        <div class="full"><button class="btn" type="submit">Anfrage senden</button></div>
+        <div class="ok full" id="f-ok" hidden></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <h4>Elite Bauservice Expert</h4>
+      <p style="opacity:.8;max-width:28em">Meisterbetrieb für Dach, Fassade, Sanierung und Innenausbau. Alles aus einer Hand.</p>
+    </div>
+    <div>
+      <h4>Leistungen</h4>
+      <ul><li><a href="#leistungen">Steildach & Flachdach</a></li><li><a href="#leistungen">Fassade & Dämmung</a></li><li><a href="#leistungen">Innenausbau</a></li><li><a href="#karriere">Photovoltaik</a></li></ul>
+    </div>
+    <div>
+      <h4>Unternehmen</h4>
+      <ul><li><a href="#ueber-uns">Über uns</a></li><li><a href="#karriere">Karriere</a></li><li><a href="#kontakt">Kontakt</a></li><li><a href="#impressum">Impressum</a></li><li><a href="#datenschutz">Datenschutz</a></li></ul>
+    </div>
+    <div class="legal">
+      <span>© 2026 Elite Bauservice Expert. Kontaktdaten sind Platzhalter.</span>
+      <span>Impressum · Datenschutz · Cookie-Einstellungen</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>{
+    const done=()=>{b.textContent='Kopiert';setTimeout(()=>b.textContent='Kopieren',1500)};
+    const sel=()=>getSelection().selectAllChildren(b.previousElementSibling);
+    navigator.clipboard ? navigator.clipboard.writeText(b.dataset.copy).then(done).catch(sel) : sel();
+  }));
+  document.getElementById('leadForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    const v=id=>document.getElementById(id).value.trim();
+    const err=document.getElementById('f-err'), ok=document.getElementById('f-ok');
+    let m='';
+    if(!v('f-name')) m='Bitte geben Sie Ihren Namen an.';
+    else if(v('f-phone').replace(/\D/g,'').length<6 && !/^\S+@\S+\.\S+$/.test(v('f-mail'))) m='Bitte geben Sie eine Telefonnummer oder E-Mail-Adresse an, damit wir Sie erreichen.';
+    else if(!document.getElementById('f-dsgvo').checked) m='Bitte stimmen Sie der Datenverarbeitung zu.';
+    if(m){err.textContent=m;err.hidden=false;ok.hidden=true;return;}
+    err.hidden=true;
+    ok.textContent='Danke, '+v('f-name')+'! Die Anfrage ist ausgefüllt. Sobald der Versand eingerichtet ist (E-Mail oder CRM), geht sie direkt an uns.';
+    ok.hidden=false;
+  });
+})();
+</script>
